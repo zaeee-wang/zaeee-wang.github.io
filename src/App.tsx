@@ -1,5 +1,4 @@
-import type { ComponentType } from 'react'
-import Spline from '@splinetool/react-spline/next'
+import Spline from '@splinetool/react-spline'
 import { CodeXml, ContactRound, Mail, type LucideIcon } from 'lucide-react'
 
 type NavItem = {
@@ -25,8 +24,6 @@ type WorkCard = {
   summary: string
   year: string
 }
-
-const SplineScene = Spline as unknown as ComponentType<{ scene: string }>
 
 const SPLINE_SCENE_URL =
   'https://prod.spline.design/WesoEMwDbB2V73iE/scene.splinecode'
@@ -108,7 +105,7 @@ function App() {
       >
         <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
           <div className="pointer-events-auto h-[120vh] w-[130vw] opacity-95 md:h-[124vh] md:w-[116vw]">
-            <SplineScene scene={SPLINE_SCENE_URL} />
+            <Spline scene={SPLINE_SCENE_URL} />
           </div>
         </div>
         <div className="absolute inset-0 z-20 bg-[radial-gradient(circle_at_50%_35%,rgba(255,255,255,0.14),rgba(8,8,8,0.9)_48%,#080808)]" />
