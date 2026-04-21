@@ -36,8 +36,7 @@ const PROJECTS: ProjectItem[] = [
       'MARS Challenge 예선 2위 및 결선 진출. MIMIC-III 데이터셋과 LLM을 활용한 임상 요약 파이프라인을 구축했습니다. scispaCy NER, UMLS, FAISS 등을 통합하여 RAG 파이프라인의 재현율(Recall)을 62%에서 81%로 향상시키고 환각 현상을 줄였습니다.',
     tags: ['RAG', 'LangChain', 'LLM'],
     links: [
-      { label: 'GitHub', href: 'https://github.com/zaeeewang' },
-      { label: 'Reference', href: 'https://physionet.org/content/mimiciii/1.4/' },
+      { label: 'GitHub', href: 'https://github.com/zaeee-wang/MARSDatathon' }
     ],
   },
   {
@@ -47,11 +46,7 @@ const PROJECTS: ProjectItem[] = [
       '개인 맞춤형 커피 레시피 로깅 및 원두 거래를 위한 풀스택 모바일 플랫폼입니다. Google Gemini API를 통합하여 AI 기반 레시피 추천을 구현했으며, 응답 스트리밍 및 비동기 처리를 통해 LLM 호출 지연 시간을 최적화했습니다.',
     tags: ['Flutter', 'Gemini API', 'NoSQL'],
     links: [
-      { label: 'GitHub', href: 'https://github.com/zaeeewang' },
-      {
-        label: 'Reference',
-        href: 'https://ai.google.dev/gemini-api/docs',
-      },
+      { label: 'GitHub', href: 'https://github.com/zaeee-wang/CoffeeRecipe' }
     ],
   },
   {
@@ -61,8 +56,7 @@ const PROJECTS: ProjectItem[] = [
       'PPO 기반 다중 에이전트 강화학습 시스템. Occlusion(장애물 가림) 상황에서도 Evader 드론을 회피하며 목표 지점에 도달할 수 있도록 정책 학습 및 실험적 분석을 진행하고, Stage 커리큘럼 기반의 보상 함수 설계를 수행했습니다.',
     tags: ['RL', 'PPO', 'MARL'],
     links: [
-      { label: 'GitHub', href: 'https://github.com/zaeeewang' },
-      { label: 'Reference', href: 'https://arxiv.org/abs/1707.06347' },
+      { label: 'GitHub', href: 'https://github.com/zaeee-wang/IIT_DroneLearning' }
     ],
   },
   {
@@ -72,10 +66,10 @@ const PROJECTS: ProjectItem[] = [
       '스미싱 및 피싱 방지를 위한 데이터 인프라 개발. KISA, 더치트 등 외부 보안 API를 연동하고, Kotlin Coroutines와 WorkManager를 이용해 백그라운드 작업 및 비동기 워크플로우를 안정적으로 구축했습니다.',
     tags: ['Kotlin', 'Gemma', 'API'],
     links: [
-      { label: 'GitHub', href: 'https://github.com/zaeeewang' },
+      { label: 'GitHub', href: 'https://github.com/zaeee-wang/OnGuard' },
       {
         label: 'Reference',
-        href: 'https://www.kisa.or.kr/2060204/form?postSeq=12&page=1',
+        href: 'https://dacon.io/en/competitions/official/236666/overview/description',
       },
     ],
   },
@@ -86,8 +80,8 @@ const PROJECTS: ProjectItem[] = [
       'Google-Ajou 캡스톤 콘테스트 우수상(3위) 수상작. 실시간 수어 인식 엔진을 설계하고 웹 플랫폼에 통합하여 상호작용 가능한 게임화 피드백 시스템을 구축했습니다. 실시간 양방향 서버 통신 백엔드도 구현했습니다.',
     tags: ['ML', 'MediaPipe', 'Backend'],
     links: [
-      { label: 'GitHub', href: 'https://github.com/zaeeewang' },
-      { label: 'Reference', href: 'https://ai.google.dev/edge/mediapipe/solutions/guide' },
+      { label: 'GitHub', href: 'https://github.com/zaeee-wang/SignUP' },
+      { label: 'Reference', href: 'https://www.notion.so/2025-1-Google-AI-338584d7a025808982e4db92645cbb3f' },
     ],
   },
   {
@@ -97,8 +91,6 @@ const PROJECTS: ProjectItem[] = [
       '치과 파노라마 X-ray 사진을 활용한 골다공증 예측 시스템. 전체 이미지 내에서 하악 피질, 이공 주변 및 하악각을 자동으로 감지하고, U-net을 기반으로 하악골 자동 분할 파이프라인을 구축했습니다.',
     tags: ['CNN', 'ViT', 'U-Net'],
     links: [
-      { label: 'GitHub', href: 'https://github.com/zaeeewang' },
-      { label: 'Reference', href: 'https://arxiv.org/abs/1505.04597' },
     ],
   },
 ]
