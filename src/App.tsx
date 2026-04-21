@@ -20,7 +20,7 @@ type FocusTrack = {
 
 type WorkCard = {
   title: string
-  kind: string
+  category: string
   summary: string
   year: string
 }
@@ -29,10 +29,10 @@ const SPLINE_SCENE_URL =
   'https://prod.spline.design/WesoEMwDbB2V73iE/scene.splinecode'
 
 const NAV_ITEMS: NavItem[] = [
-  { label: 'About', href: '#about' },
-  { label: 'Focus', href: '#focus' },
-  { label: 'Work', href: '#work' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'ABOUT', href: '#about' },
+  { label: 'FOCUS', href: '#focus' },
+  { label: 'WORK', href: '#work' },
+  { label: 'CONTACT', href: '#contact' },
 ]
 
 const SOCIAL_LINKS: SocialLink[] = [
@@ -45,47 +45,42 @@ const SOCIAL_LINKS: SocialLink[] = [
   },
 ]
 
-const HERO_LINES = [
-  'Building',
-  'Reliable AI',
-  'for Clinical',
-  'Decisions',
-]
+const HERO_LINES = ['Reliable AI', 'for Clinical', 'Decisions']
 
 const FOCUS_TRACKS: FocusTrack[] = [
   {
     title: 'Medical Vision',
-    description: 'X-ray 기반 분석과 분할 자동화 연구',
-    detail: '진단 보조 정확도와 해석 가능성을 함께 개선합니다.',
+    description: '의료영상 기반 자동 분석 파이프라인',
+    detail: '정확도와 해석 가능성을 동시에 높이는 모델 구조를 연구합니다.',
   },
   {
     title: 'Clinical NLP',
-    description: '임상 노트 생성 및 요약 파이프라인',
-    detail: '정보 회수율을 높이고 환각을 줄이는 구조를 설계합니다.',
+    description: '임상 노트 요약·정보 추출 시스템',
+    detail: '실사용 문맥에서 회수율을 높이고 환각을 줄이는 방법을 설계합니다.',
   },
   {
     title: 'Agent Safety',
-    description: 'RAG 진단 에이전트 보안·검증',
-    detail: 'PHI 노출 가능성을 평가하는 프로토콜을 개발합니다.',
+    description: '진단 에이전트 안전성 평가',
+    detail: 'PHI 노출 가능성과 신뢰성 리스크를 체계적으로 검증합니다.',
   },
 ]
 
 const WORK_CARDS: WorkCard[] = [
   {
     title: 'PLADP Framework',
-    kind: 'Research',
+    category: 'Research',
     summary: '의료 에이전트의 잠재 PHI 접근 여부를 탐지하는 평가 프레임워크',
     year: '2026',
   },
   {
     title: 'MARS Datathon',
-    kind: 'Challenge',
-    summary: '임상 텍스트 요약 체계 고도화로 본선 진출 성과 도출',
+    category: 'Challenge',
+    summary: '임상 텍스트 요약 체계 고도화로 본선 단계까지 성과를 확장',
     year: '2025',
   },
   {
     title: 'Sign Language Platform',
-    kind: 'Project',
+    category: 'Project',
     summary: '실시간 인식 기반 학습 플랫폼 구축 및 캡스톤 수상',
     year: '2025',
   },
@@ -93,9 +88,9 @@ const WORK_CARDS: WorkCard[] = [
 
 function App() {
   return (
-    <main className="relative min-h-screen bg-[#080808] text-[#f4f4f4]">
+    <main className="relative min-h-screen bg-[#060606] text-[#f5f5f5] font-ui">
       <div
-        className="pointer-events-none fixed inset-0 z-40 bg-[url('/texture.png')] bg-cover bg-center opacity-25 mix-blend-lighten"
+        className="pointer-events-none fixed inset-0 z-40 bg-[url('/texture.png')] bg-cover bg-center opacity-24 mix-blend-lighten"
         aria-hidden="true"
       />
 
@@ -103,29 +98,32 @@ function App() {
         id="home"
         className="relative isolate min-h-screen overflow-hidden border-b border-white/15 bg-black"
       >
-        <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
-          <div className="pointer-events-auto h-[120vh] w-[130vw] opacity-95 md:h-[124vh] md:w-[116vw]">
-            <Spline scene={SPLINE_SCENE_URL} />
+        <div className="absolute inset-0 z-10">
+          <div className="pointer-events-none mx-auto h-full w-full max-w-[1831px]">
+            <div className="pointer-events-auto absolute left-1/2 top-1/2 h-[78vh] w-[82vw] -translate-x-1/2 -translate-y-1/2 md:h-[82vh] md:w-[72vw]">
+              <Spline scene={SPLINE_SCENE_URL} />
+            </div>
           </div>
         </div>
-        <div className="absolute inset-0 z-20 bg-[radial-gradient(circle_at_50%_35%,rgba(255,255,255,0.14),rgba(8,8,8,0.9)_48%,#080808)]" />
 
-        <div className="relative z-30 mx-auto flex min-h-screen w-full max-w-[1831px] flex-col px-5 pb-12 pt-6 md:px-10 lg:px-16">
+        <div className="pointer-events-none absolute inset-0 z-20 bg-[radial-gradient(circle_at_50%_30%,rgba(255,255,255,0.2),rgba(6,6,6,0.84)_52%,#060606)]" />
+
+        <div className="pointer-events-none relative z-30 mx-auto flex min-h-screen w-full max-w-[1831px] flex-col px-5 pb-10 pt-6 md:px-10 lg:px-16">
           <header className="flex items-center justify-between gap-5">
             <a
               href="#home"
-              className="font-seasons text-xl leading-[1.4] tracking-[0.03em] text-white md:text-2xl"
+              className="pointer-events-auto font-display text-[clamp(1.75rem,2.2vw,2.35rem)] leading-[1.4] text-white"
             >
               Jaewang Lee
             </a>
 
-            <nav className="liquid-glass hidden rounded-full px-5 py-2 md:block">
-              <ul className="flex items-center gap-6">
+            <nav className="pointer-events-auto liquid-glass hidden rounded-full px-5 py-2 md:block">
+              <ul className="flex items-center gap-7">
                 {NAV_ITEMS.map((item) => (
                   <li key={item.label}>
                     <a
                       href={item.href}
-                      className="font-poppins text-xs uppercase leading-[1.4] tracking-[0.17em] text-white/90 transition hover:text-white"
+                      className="font-ui text-xs font-medium tracking-[0.16em] text-white/88 transition hover:text-white"
                     >
                       {item.label}
                     </a>
@@ -139,29 +137,29 @@ function App() {
                 <a
                   key={label}
                   href={href}
-                  className="liquid-glass inline-flex h-10 w-10 items-center justify-center rounded-full text-white/90 transition hover:text-white"
+                  className="pointer-events-auto liquid-glass inline-flex h-10 w-10 items-center justify-center rounded-full text-white/85 transition hover:text-white"
                   target="_blank"
                   rel="noreferrer"
                   aria-label={label}
                 >
-                  <Icon size={17} />
+                  <Icon size={16} />
                 </a>
               ))}
             </div>
           </header>
 
-          <div className="my-auto max-w-[860px] py-20 md:py-24">
-            <p className="font-poppins text-sm uppercase leading-[1.5] tracking-[0.22em] text-white/65">
-              Graduate Portfolio
+          <div className="my-auto max-w-[820px] py-20 md:py-24">
+            <p className="font-ui text-xs uppercase tracking-[0.2em] text-white/60">
+              GRADUATE PORTFOLIO
             </p>
-            <h1 className="mt-5 font-seasons text-[clamp(3rem,8.5vw,9rem)] leading-[0.93] tracking-[0.02em] text-white">
+            <h1 className="mt-5 font-display text-[clamp(3.2rem,6.8vw,7.4rem)] leading-[0.92] tracking-[0.01em] text-white">
               {HERO_LINES.map((line) => (
                 <span key={line} className="block">
                   {line}
                 </span>
               ))}
             </h1>
-            <p className="mt-8 max-w-[720px] font-poppins text-base leading-[1.6] text-white/78 md:text-lg">
+            <p className="mt-7 max-w-[680px] font-ko text-base leading-[1.65] text-white/78 md:text-lg">
               아주대학교 소프트웨어 및 컴퓨터공학을 기반으로, 의료 현장에서 실제로
               작동하는 신뢰형 AI 시스템을 연구합니다.
             </p>
@@ -171,12 +169,12 @@ function App() {
                 <a
                   key={label}
                   href={href}
-                  className="liquid-glass inline-flex h-10 w-10 items-center justify-center rounded-full text-white/90"
+                  className="pointer-events-auto liquid-glass inline-flex h-10 w-10 items-center justify-center rounded-full text-white/85"
                   target="_blank"
                   rel="noreferrer"
                   aria-label={label}
                 >
-                  <Icon size={17} />
+                  <Icon size={16} />
                 </a>
               ))}
             </div>
@@ -185,51 +183,51 @@ function App() {
       </section>
 
       <section id="about" className="bg-[#ececec] py-24 text-[#111111] md:py-28">
-        <div className="mx-auto grid w-full max-w-[1831px] gap-14 px-5 md:grid-cols-[1.15fr_1fr] md:px-10 lg:px-16">
+        <div className="mx-auto grid w-full max-w-[1831px] gap-14 px-5 md:grid-cols-[1.1fr_1fr] md:px-10 lg:px-16">
           <div>
-            <p className="font-poppins text-xs uppercase leading-[1.5] tracking-[0.2em] text-black/60">
-              About
+            <p className="font-ui text-xs font-medium uppercase tracking-[0.2em] text-black/60">
+              ABOUT
             </p>
-            <h2 className="mt-4 max-w-[700px] font-seasons text-[clamp(2rem,4.6vw,3.75rem)] leading-[1.4]">
-              연구는 정교해야 하고,
+            <h2 className="mt-4 max-w-[720px] font-display text-[clamp(2.1rem,4.3vw,3.75rem)] leading-[1.4] text-black">
+              Research should be precise.
               <br />
-              결과는 임상에서 읽혀야 합니다.
+              Outcomes should be usable.
             </h2>
-            <p className="lang-ko mt-6 max-w-[660px] text-lg text-black/75">
-              모델 성능 수치만이 아니라 설명 가능성, 데이터 안전성, 활용 맥락까지
-              함께 설계합니다. 실험을 논문으로 끝내지 않고 실제 워크플로로 연결하는
-              데 집중합니다.
+            <p className="mt-6 max-w-[680px] font-ko text-lg leading-[1.65] text-black/78">
+              모델 성능 수치만이 아니라 설명 가능성, 데이터 안전성, 실제 활용
+              맥락까지 함께 설계합니다. 실험 단계에 머무르지 않고 실행 가능한
+              시스템으로 연결하는 데 집중합니다.
             </p>
           </div>
 
           <div className="space-y-6">
-            <p className="font-poppins text-base leading-[1.6] text-black/80">
+            <p className="font-ui text-base leading-[1.6] text-black/82">
               BS Candidate, Ajou University
               <br />
               Research Intern in Biomedical AI
             </p>
-            <p className="lang-ko text-base text-black/72">
+            <p className="font-ko text-base leading-[1.65] text-black/75">
               의료영상 분석, 임상 텍스트 처리, 에이전트 안전성 검증을 중심으로
-              연구를 확장하고 있습니다.
+              학술성과와 프로토타입 구현을 함께 진행하고 있습니다.
             </p>
             <a
               href="mailto:jaewang1535@ajou.ac.kr"
-              className="liquid-glass inline-flex rounded-full border border-black/20 px-5 py-2 font-poppins text-sm uppercase leading-[1.4] tracking-[0.14em] text-black"
+              className="liquid-glass inline-flex rounded-full border border-black/20 px-5 py-2 font-ui text-xs font-medium tracking-[0.14em] text-black"
             >
-              Contact
+              CONTACT
             </a>
           </div>
         </div>
       </section>
 
-      <section id="focus" className="bg-[#111111] py-24 md:py-28">
+      <section id="focus" className="bg-[#101010] py-24 md:py-28">
         <div className="mx-auto w-full max-w-[1831px] px-5 md:px-10 lg:px-16">
           <header className="border-b border-white/20 pb-6">
-            <p className="font-poppins text-xs uppercase leading-[1.5] tracking-[0.2em] text-white/60">
-              Research Focus
+            <p className="font-ui text-xs font-medium uppercase tracking-[0.2em] text-white/58">
+              FOCUS
             </p>
-            <h2 className="mt-3 max-w-[820px] font-seasons text-[clamp(2rem,4.6vw,3.75rem)] leading-[1.4] text-white">
-              Current Tracks
+            <h2 className="mt-3 max-w-[760px] font-display text-[clamp(2.1rem,4.2vw,3.75rem)] leading-[1.4] text-white">
+              Current Research Tracks
             </h2>
           </header>
 
@@ -239,27 +237,29 @@ function App() {
                 key={track.title}
                 className="liquid-glass rounded-2xl bg-white/[0.03] p-6"
               >
-                <h3 className="font-seasons text-[clamp(1.6rem,2.4vw,2.2rem)] leading-[1.4] text-white">
+                <h3 className="font-display text-[clamp(1.7rem,2.3vw,2.25rem)] leading-[1.4] text-white">
                   {track.title}
                 </h3>
-                <p className="lang-ko mt-4 text-base text-white/80">
+                <p className="mt-4 font-ko text-base leading-[1.65] text-white/82">
                   {track.description}
                 </p>
-                <p className="lang-ko mt-3 text-sm text-white/64">{track.detail}</p>
+                <p className="mt-3 font-ko text-sm leading-[1.65] text-white/64">
+                  {track.detail}
+                </p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="work" className="bg-[#f0f0f0] py-24 text-[#101010] md:py-28">
+      <section id="work" className="bg-[#efefef] py-24 text-[#101010] md:py-28">
         <div className="mx-auto w-full max-w-[1831px] px-5 md:px-10 lg:px-16">
           <header className="border-b border-black/20 pb-6">
-            <p className="font-poppins text-xs uppercase leading-[1.5] tracking-[0.2em] text-black/60">
-              Selected Work
+            <p className="font-ui text-xs font-medium uppercase tracking-[0.2em] text-black/60">
+              WORK
             </p>
-            <h2 className="mt-3 max-w-[820px] font-seasons text-[clamp(2rem,4.6vw,3.75rem)] leading-[1.4]">
-              Projects and Research Notes
+            <h2 className="mt-3 max-w-[780px] font-display text-[clamp(2.1rem,4.2vw,3.75rem)] leading-[1.4] text-black">
+              Selected Projects and Notes
             </h2>
           </header>
 
@@ -267,15 +267,17 @@ function App() {
             {WORK_CARDS.map((work) => (
               <article
                 key={work.title}
-                className="liquid-glass rounded-2xl border border-black/15 bg-white/40 p-6"
+                className="liquid-glass rounded-2xl border border-black/15 bg-white/45 p-6"
               >
-                <p className="font-poppins text-xs uppercase leading-[1.5] tracking-[0.16em] text-black/55">
-                  {work.kind} · {work.year}
+                <p className="font-ui text-xs font-medium tracking-[0.15em] text-black/56">
+                  {work.category} · {work.year}
                 </p>
-                <h3 className="mt-3 font-seasons text-[clamp(1.5rem,2.3vw,2.15rem)] leading-[1.4] text-black">
+                <h3 className="mt-3 font-display text-[clamp(1.6rem,2.1vw,2.2rem)] leading-[1.4] text-black">
                   {work.title}
                 </h3>
-                <p className="lang-ko mt-4 text-base text-black/73">{work.summary}</p>
+                <p className="mt-4 font-ko text-base leading-[1.65] text-black/75">
+                  {work.summary}
+                </p>
               </article>
             ))}
           </div>
@@ -285,12 +287,12 @@ function App() {
       <section id="contact" className="border-t border-white/20 bg-[#0b0b0b] py-20 md:py-24">
         <div className="mx-auto w-full max-w-[1831px] px-5 md:px-10 lg:px-16">
           <div className="liquid-glass rounded-2xl p-6 md:p-10">
-            <h2 className="font-seasons text-[clamp(2rem,4.3vw,3.75rem)] leading-[1.4] text-white">
+            <h2 className="font-display text-[clamp(2.1rem,4.1vw,3.75rem)] leading-[1.4] text-white">
               Let&apos;s Continue the Conversation
             </h2>
-            <p className="lang-ko mt-4 max-w-[680px] text-base text-white/76 md:text-lg">
+            <p className="mt-4 max-w-[700px] font-ko text-base leading-[1.65] text-white/76 md:text-lg">
               공동 연구, 프로젝트 협업, 기술적 논의를 환영합니다. 아래 채널로
-              연락 주시면 확인 후 답변드립니다.
+              연락주시면 확인 후 답변드리겠습니다.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -298,7 +300,7 @@ function App() {
                 <a
                   key={label}
                   href={href}
-                  className="liquid-glass inline-flex items-center gap-2 rounded-full px-4 py-2 font-poppins text-sm leading-[1.4] text-white/88"
+                  className="liquid-glass inline-flex items-center gap-2 rounded-full px-4 py-2 font-ui text-sm leading-[1.4] text-white/88"
                   target="_blank"
                   rel="noreferrer"
                 >
