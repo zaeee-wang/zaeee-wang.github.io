@@ -334,7 +334,9 @@ export default function App() {
             <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12">
               <div className="text-[var(--text-muted)] md:col-span-4">
                 <span className="font-inter-title block text-lg font-bold text-[var(--text-strong)]">
-                  BMAI Lab, Ajou Univ.
+                  BMAI Lab,
+                  <br />
+                  Ajou University School of Medicine
                 </span>
                 <span className="font-english-ui mt-2 block text-sm font-medium">
                   Mar. 2026 - Present
@@ -377,10 +379,10 @@ export default function App() {
                   <h4 className="font-inter-title text-lg font-bold text-[var(--text-strong)]">
                     B.S. in Software and Computer Engineering
                   </h4>
-                  <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-[var(--text-muted)]">
+                  {/* <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-[var(--text-muted)]">
                     <li>Overall GPA: 3.95 / 4.5</li>
                     <li>Major GPA: 4.0 / 4.5</li>
-                  </ul>
+                  </ul> */}
                 </div>
                 <div className="pt-4">
                   <h4 className="font-inter-title text-lg font-bold text-[var(--text-strong)]">
