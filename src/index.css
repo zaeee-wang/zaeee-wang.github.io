@@ -2,6 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'The Seasons';
+  src: url("/fonts/the-seasons/The Seasons Light.ttf") format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'The Seasons';
+  src: url("/fonts/the-seasons/The Seasons Regular.ttf") format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'The Seasons';
+  src: url("/fonts/the-seasons/The Seasons Bold.ttf") format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'The Seasons';
+  src: url("/fonts/the-seasons/The Seasons Light Italic.ttf") format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'The Seasons';
+  src: url("/fonts/the-seasons/The Seasons Italic.ttf") format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'The Seasons';
+  src: url("/fonts/the-seasons/The Seasons Bold Italic.ttf") format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 @layer base {
   *,
   *::before,
@@ -17,17 +65,13 @@
 
   body {
     margin: 0;
-    background: #010828;
-    color: #eff4ff;
-    font-family: 'Noto Sans KR', Pretendard, sans-serif;
-    line-height: 1.45;
+    background: #080808;
+    color: #f4f4f4;
+    font-family: 'Poppins', 'Noto Sans KR', Pretendard, sans-serif;
+    line-height: 1.5;
     text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  video {
-    display: block;
   }
 }
 
@@ -66,7 +110,16 @@
 
   .lang-ko {
     font-family: 'Noto Sans KR', Pretendard, sans-serif;
-    letter-spacing: 0.01em;
-    line-height: 1.55;
+    letter-spacing: -0.01em;
+    line-height: 1.6;
+    word-break: keep-all;
+  }
+
+  .font-seasons {
+    font-family: 'The Seasons', Georgia, serif;
+  }
+
+  .font-poppins {
+    font-family: 'Poppins', 'Noto Sans KR', Pretendard, sans-serif;
   }
 }
