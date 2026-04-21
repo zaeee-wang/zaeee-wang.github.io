@@ -1,4 +1,5 @@
-import Spline from '@splinetool/react-spline'
+import type { ComponentType } from 'react'
+import Spline from '@splinetool/react-spline/next'
 import {
   ArrowUpRight,
   CodeXml,
@@ -21,25 +22,14 @@ type SocialLink = {
 type FeaturedCard = {
   title: string
   subtitle: string
-  video: string
   overlayLabel: string
   overlayValue: string
 }
 
-const SPLINE_SCENE_URL = 'https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode'
+const SplineScene = Spline as unknown as ComponentType<{ scene: string }>
 
-const MEDIA_SOURCES = {
-  hero: 'https://videos.pexels.com/video-files/854174/854174-hd_1920_1080_25fps.mp4',
-  about:
-    'https://videos.pexels.com/video-files/3571264/3571264-hd_1920_1080_30fps.mp4',
-  cardOne:
-    'https://videos.pexels.com/video-files/3255275/3255275-hd_1920_1080_25fps.mp4',
-  cardTwo:
-    'https://videos.pexels.com/video-files/853889/853889-hd_1920_1080_25fps.mp4',
-  cardThree:
-    'https://videos.pexels.com/video-files/3195394/3195394-hd_1920_1080_25fps.mp4',
-  cta: 'https://videos.pexels.com/video-files/856973/856973-hd_1920_1080_25fps.mp4',
-}
+const SPLINE_SCENE_URL =
+  'https://prod.spline.design/WesoEMwDbB2V73iE/scene.splinecode'
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'HOME', href: '#home' },
@@ -76,21 +66,18 @@ const FEATURED_CARDS: FeaturedCard[] = [
   {
     title: 'TRUSTWORTHY MEDICAL AGENTS',
     subtitle: 'RAG Safety + PHI Leakage Detection',
-    video: MEDIA_SOURCES.cardOne,
     overlayLabel: 'RESEARCH FOCUS',
     overlayValue: 'CLINICAL AI SAFETY',
   },
   {
     title: 'COMPUTER-AIDED DIAGNOSIS',
     subtitle: 'X-Ray Analysis, Segmentation, Risk Modeling',
-    video: MEDIA_SOURCES.cardTwo,
     overlayLabel: 'SELECTED AREA',
     overlayValue: 'MEDICAL VISION',
   },
   {
     title: 'RESEARCH TO PROTOTYPE',
     subtitle: 'Applied ML, Platform Engineering, Product Thinking',
-    video: MEDIA_SOURCES.cardThree,
     overlayLabel: 'HIGHLIGHT',
     overlayValue: 'AWARDS + DATATHON IMPACT',
   },
@@ -106,26 +93,16 @@ function App() {
 
       <section
         id="home"
-        className="relative isolate min-h-screen overflow-hidden rounded-b-[2rem] border-b border-cream/20"
+        className="relative isolate min-h-screen overflow-hidden rounded-b-[2rem] border-b border-cream/20 bg-[#020a2f]"
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover"
-        >
-          <source src={MEDIA_SOURCES.hero} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(111,255,0,0.16),rgba(1,8,40,0.9)_50%,#010828)]" />
-
         <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
-          <div className="pointer-events-auto h-[122vh] w-[132vw] opacity-90 md:h-[130vh] md:w-[120vw]">
-            <Spline scene={SPLINE_SCENE_URL} />
+          <div className="pointer-events-auto h-[122vh] w-[132vw] opacity-95 md:h-[130vh] md:w-[120vw]">
+            <SplineScene scene={SPLINE_SCENE_URL} />
           </div>
         </div>
+        <div className="absolute inset-0 z-20 bg-[radial-gradient(circle_at_50%_34%,rgba(111,255,0,0.1),rgba(1,8,40,0.84)_56%,#010828)]" />
 
-        <div className="relative z-20 mx-auto flex min-h-screen w-full max-w-[1831px] flex-col px-5 pb-12 pt-6 md:px-10 lg:px-16">
+        <div className="relative z-30 mx-auto flex min-h-screen w-full max-w-[1831px] flex-col px-5 pb-12 pt-6 md:px-10 lg:px-16">
           <header className="flex items-center justify-between gap-4">
             <a
               href="#home"
@@ -205,20 +182,8 @@ function App() {
 
       <section
         id="about"
-        className="relative isolate min-h-screen overflow-hidden border-t border-cream/10 bg-[#07103a] py-24 md:py-32"
+        className="relative isolate min-h-screen border-t border-cream/10 bg-[#06103a] py-24 md:py-32"
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover opacity-55"
-        >
-          <source src={MEDIA_SOURCES.about} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-[#07103a]/75" />
-        <div className="absolute inset-0 bg-[url('/section-fog.svg')] bg-cover bg-center opacity-35" />
-
         <div className="relative mx-auto w-full max-w-[1831px] px-5 md:px-10 lg:px-16">
           <div className="grid gap-14 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
             <div>
@@ -230,8 +195,8 @@ function App() {
                 <span className="block">ENGINEERING CLINICAL INTELLIGENCE.</span>
               </h2>
               <p className="mt-6 max-w-[680px] lang-ko text-base text-cream/75 md:text-lg">
-                의료 데이터를 실제 의사결정 지원 시스템으로 연결하기 위해,
-                모델 설계와 검증 프로토콜을 함께 다루는 연구를 지향합니다.
+                의료 데이터를 실제 의사결정 지원 시스템으로 연결하기 위해 모델
+                설계와 검증 프로토콜을 함께 다루는 연구를 지향합니다.
               </p>
             </div>
 
@@ -243,8 +208,8 @@ function App() {
               FOCUSING ON MEDICAL IMAGE ANALYSIS, CLINICAL NLP, AND SAFETY-ORIENTED
               AGENT DESIGN.
               <span className="mt-4 block lang-ko text-sm normal-case tracking-normal text-cream/75">
-                학부 연구 단계에서 영상 분석, 임상 노트 생성, 개인정보 보호형
-                AI 에이전트 평가를 함께 확장하고 있습니다.
+                학부 연구 단계에서 영상 분석, 임상 노트 생성, 개인정보 보호형 AI
+                에이전트 평가를 함께 확장하고 있습니다.
               </span>
             </p>
           </div>
@@ -264,9 +229,8 @@ function App() {
 
       <section
         id="research"
-        className="relative isolate overflow-hidden border-t border-cream/10 bg-background py-24 md:py-32"
+        className="relative isolate border-t border-cream/10 bg-[#081548] py-24 md:py-32"
       >
-        <div className="absolute inset-0 bg-[url('/grid-overlay.svg')] bg-cover bg-center opacity-25" />
         <div className="relative mx-auto w-full max-w-[1831px] px-5 md:px-10 lg:px-16">
           <header className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <div>
@@ -295,19 +259,9 @@ function App() {
             {FEATURED_CARDS.map((card) => (
               <article
                 key={card.title}
-                className="liquid-glass rounded-[1.5rem] p-4 md:p-5"
+                className="liquid-glass rounded-[1.5rem] bg-[#0a1a52]/70 p-4 md:p-5"
               >
-                <div className="overflow-hidden rounded-2xl">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="aspect-square w-full object-cover"
-                  >
-                    <source src={card.video} type="video/mp4" />
-                  </video>
-                </div>
+                <div className="liquid-glass h-56 rounded-2xl bg-[#102467]" />
 
                 <div className="mt-6 flex items-start justify-between gap-5">
                   <div>
@@ -339,17 +293,11 @@ function App() {
 
       <section
         id="contact"
-        className="relative isolate overflow-hidden border-t border-cream/10 bg-[#020d34] py-20 md:py-28"
+        className="relative isolate border-t border-cream/10 bg-[#091d5a] py-20 md:py-28"
       >
-        <div className="absolute inset-0 bg-[url('/section-fog.svg')] bg-cover bg-top opacity-25" />
         <div className="relative mx-auto w-full max-w-[1831px] px-5 md:px-10 lg:px-16">
-          <div className="relative overflow-hidden rounded-[2rem] border border-cream/20">
-            <video autoPlay loop muted playsInline className="block h-auto w-full">
-              <source src={MEDIA_SOURCES.cta} type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/45 to-transparent" />
-
-            <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-10 lg:p-14">
+          <div className="liquid-glass rounded-[2rem] border border-cream/20 p-6 md:p-10 lg:p-14">
+            <div className="flex flex-col justify-between gap-14">
               <div>
                 <p className="font-condiment text-3xl normal-case text-neon md:text-4xl">
                   Let&apos;s connect
